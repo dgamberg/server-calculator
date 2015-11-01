@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/vendors/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/assets/styles/style.css"/>
+    <script src="/vendors/jquery.min.js"></script>
+    <script src="/assets/scripts/app.js"></script>
+
+</head>
+<body>
+<div id="main" class="container well">
+        <section  class="container">
+            <h3 id="top-title">Server Calculator</h3>
+            <form id="mainCalculator" class="form">
+
+                <div class="form-container">
+                    <div class="form-group">
+                           <input class="form-control" type="text" id="valueInput1" name="valueInput1" placeholder="1st Number">
+                    </div>
+                    <div id="formButtons" class="form-group">
+                        <div class="btn-group" role="group" aria-label="...">
+                            <button selected  id='addButton' class='btn btn-primary'>+</button>
+                            <button disabled  id='subtractButton' class='btn btn-primary'>-</button>
+                            <button disabled  id='multiplyButton' class='btn btn-primary'>x</button>
+                            <button disabled  id='divideButton' class='btn btn-primary'>/</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" id="valueInput2" name="valueInput2" placeholder="2nd Number">
+                    </div>
+                    <div id="equalsButtonContainer" class="form-group">
+                        <button id="equalsButton"class='btn btn-primary'>=</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <section class="container">
+            <div id="calcOutput" class="bg-primary">0</div>
+        </section>
+    </div>
+</body>
+</html>
