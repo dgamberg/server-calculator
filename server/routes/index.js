@@ -14,22 +14,11 @@ router.route('/subtract');
 router.route('/multiply');
 router.route('/divide');
 
-//Addition Object from module
-router.post('/add', function(req, res){
-    res.send(createAdditionObject(req));
-});
-// Subtraction Object from module
-router.post('/subtract', function(req, res){
-    res.send(createSubtractionObject(req));
-});
-// Multiply Object from module
-router.post('/multiply', function(req, res){
-    res.send(createMultiplyObject(req));
-});
-// Divide Object
-router.post('/divide', function(req, res){
-    res.send(createDivideObject(req));
-});
+//Math Object Imports From Modules
+router.post('/add',      function(req, res){res.send( createAdditionObject(req) );}) ;
+router.post('/subtract', function(req, res){res.send( createSubtractionObject(req) ); });
+router.post('/multiply', function(req, res){res.send( createMultiplyObject(req) ); });
+router.post('/divide',   function(req, res){res.send( createDivideObject(req) ); });
 
 router.get('/*', function (req, res){
     var file = req.params[0] || "index.html";
