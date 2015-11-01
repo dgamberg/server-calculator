@@ -4,7 +4,6 @@ var path = require("path");
 var bodyParser = require("body-parser");
 var index = require('./routes/index');
 
-
 app.set("port", process.envPORT || 8000);
 
 app.use(bodyParser.json());
