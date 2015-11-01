@@ -1,16 +1,34 @@
-var $el;
+
 //create blank object to add to
 var values = {};
+//Set Output DIV
+$el = $('#calcOutput');
 
+//DOC READY
 $(document).ready(function(){
-    $el = $('#calcOutput');
+    init();
+});
 
-    $('#equalsButton').on('click', function(event){
+//event listeners
+function init(){
+    $('#addButton').on('click', function(event){
         submitFunctions(event);
         callAjaxAddFunction();
     });
-});
 
+    $('#subtractButton').on('click', function(event){
+        submitFunctions(event);
+        callAjaxSubtractFunction();
+    });
+    $('#multiplyButton').on('click', function(event){
+        submitFunctions(event);
+        callAjaxMultiplyFunction();
+    });
+    $('#divideButton').on('click', function(event){
+        submitFunctions(event);
+        callAjaxDivideFunction();
+    });
+}
 function submitFunctions(event){
     event.preventDefault();
 
@@ -26,7 +44,6 @@ function callAjaxAddFunction(){
     $.ajax({
         type: "POST",
         url: "/add",
-        //from values in line 19
         data: values,
         success: function(data){
             console.log(data);
@@ -35,42 +52,39 @@ function callAjaxAddFunction(){
     });
 }
 
-// TO DO Move this out
-// Create HTML Message
-//var htmlForDOM =
-//    "<p class='calcResponse'>When " +
-//    "<strong id='valueOneOutput'>" + data.value1 + "</strong> " +
-//    "and <strong id='valueTwoOutput'>" + data.value2 + "</strong> are " +
-//    "<span id='valueTwoOutput'>" +  data.operation + "</span> the result is " +
-//    "<strong id='valueTotalOutput'>" + data.outputTotal + "</strong>" +
-//    "</p>";
 
+function callAjaxSubtractFunction(){
+    $.ajax({
+        type: "POST",
+        url: "/subtract",
+        data: values,
+        success: function(data){
+            console.log(data);
+            $('#calcOutput').text(data.outputTotal);
+        }
+    });
+}
 
-    ////serialize all items from the form into an object
-    //$.each($('#mainCalculator').serializeArray(), function(i, field){
-    //    values[field.name] = field.value;
-    //});
-    //// Clear out form after submit
-    //$('#mainCalculator').find("input[type=text]").val("");
+function callAjaxMultiplyFunction(){
+    $.ajax({
+        type: "POST",
+        url: "/multiply",
+        data: values,
+        success: function(data){
+            console.log(data);
+            $('#calcOutput').text(data.outputTotal);
+        }
+    });
+}
 
-    ////ajax call
-    //$.ajax({
-    //    type: "POST",
-    //    url: "/add",
-    //    data: values,
-    //    success: function(data){
-    //
-    //        //create HTML Message
-    //        var htmlForDOM =
-    //            "<p class='calcResponse'>When " +
-    //            "<strong id='valueOneOutput'>" + data.value1 + "</strong> " +
-    //            "and <strong id='valueTwoOutput'>" + data.value2 + "</strong> are " +
-    //            "<span id='valueTwoOutput'>" +  data.operation + "</span> the result is " +
-    //            "<strong id='valueTotalOutput'>" + data.outputTotal + "</strong>" +
-    //            "</p>";
-    //
-    //        $('#calcOutput').text(data.outputTotal);
-    //
-    //    }
-    //});
-
+function callAjaxDivideFunction(){
+    $.ajax({
+        type: "POST",
+        url: "/divide",
+        data: values,
+        success: function(data){
+            console.log(data);
+            $('#calcOutput').text(data.outputTotal);
+        }
+    });
+}
