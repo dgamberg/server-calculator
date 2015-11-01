@@ -1,9 +1,12 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
+
 //Module Imports
 var createAdditionObject = require('../modules/createAdditionObject');
 var createSubtractionObject = require('../modules/createSubtractionObject');
+var createMultiplyObject = require ('../modules/createMultiplyObject');
+var createDivideObject = require('../modules/createDivideObject');
 
 //Routes
 router.route('/add');
@@ -11,32 +14,21 @@ router.route('/subtract');
 router.route('/multiply');
 router.route('/divide');
 
-//Addition Object
+//Addition Object from module
 router.post('/add', function(req, res){
     res.send(createAdditionObject(req));
 });
-// Subtraction Object
+// Subtraction Object from module
 router.post('/subtract', function(req, res){
     res.send(createSubtractionObject(req));
 });
-
-
+// Multiply Object from module
 router.post('/multiply', function(req, res){
-    var output = {};
-    output["value1"] = req.body.valueInput1;
-    output["value2"] = req.body.valueInput2;
-    output["operation"] = "multiplied";
-    output["outputTotal"] = parseInt(output["value1"]) * parseInt(output["value2"]);
-    res.send(output);
+    res.send(createMultiplyObject(req));
 });
-
+// Divide Object
 router.post('/divide', function(req, res){
-    var output = {};
-    output["value1"] = req.body.valueInput1;
-    output["value2"] = req.body.valueInput2;
-    output["operation"] = "divided";
-    output["outputTotal"] = parseInt(output["value1"]) / parseInt(output["value2"]);
-    res.send(output);
+    res.send(createDivideObject(req));
 });
 
 router.get('/*', function (req, res){

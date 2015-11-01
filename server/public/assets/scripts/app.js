@@ -46,7 +46,7 @@ function callAjaxAddFunction(){
         url: "/add",
         data: values,
         success: function(data){
-            console.log(data);
+
             $('#calcOutput').text(data.outputTotal);
         }
     });
@@ -59,7 +59,7 @@ function callAjaxSubtractFunction(){
         url: "/subtract",
         data: values,
         success: function(data){
-            console.log(data);
+
             $('#calcOutput').text(data.outputTotal);
         }
     });
@@ -71,7 +71,7 @@ function callAjaxMultiplyFunction(){
         url: "/multiply",
         data: values,
         success: function(data){
-            console.log(data);
+
             $('#calcOutput').text(data.outputTotal);
         }
     });
@@ -83,7 +83,7 @@ function callAjaxDivideFunction(){
         url: "/divide",
         data: values,
         success: function(data){
-            console.log(data);
+
             $('#calcOutput').text(data.outputTotal);
         }
     });
